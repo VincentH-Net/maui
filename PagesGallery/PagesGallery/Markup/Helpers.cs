@@ -1,56 +1,7 @@
-﻿using System.ComponentModel;
-using System.Maui;
-using System.Maui.Markup;
-using System.Maui.Markup.LeftToRight;
-using System.Windows.Input;
-using static PagesGallery.Factory;
-using static System.Maui.Color;
-using vm = PagesGallery.MauiLiveStreamSampleViewModel;
+﻿using System.Maui;
 
-namespace PagesGallery
+namespace PagesGallery.Markup
 {
-	public class MauiLiveStreamSamplePageInMvvm : ContentPage
-	{
-		public MauiLiveStreamSamplePageInMvvm(vm vm)
-		{
-			BindingContext = vm;
-			Build();
-		}
-
-		void Build() => Content = VStack (
-			Spacer (),
-
-			Label () .Bind (nameof(vm.Message))
-					    .Color (White, "#7258F6") .Font (64, "DIN Alternate") .LinesWordWrap ()
-					    .Margin (left: 25, right: 25) .FillHorizontal () .TextLeft (),
-
-			Button ("Increment") .Bind (nameof(vm.IncrementCommand))
-					.Color (White) .Font (32)
-					.RoundedBorder (radius: 20, color: Transparent) .Shadow ()
-					.Margin (30) .FillHorizontal () .Frame (height: 76),
-
-			Button ("Decrement") .Bind (nameof(vm.DecrementCommand)),
-
-			Spacer ()
-		);
-	}
-
-	public class MauiLiveStreamSampleViewModel : INotifyPropertyChanged
-	{
-		ICommand incrementCommand, decrementCommand;
-
-		public string Message => $"I will run {Count} miles this month.";
-		public int Count { get; set; }
-		public ICommand IncrementCommand => incrementCommand ??= new Command(() => Increment());
-		public ICommand DecrementCommand => decrementCommand ??= new Command(() => Decrement());
-
-		void Increment() => Count++;
-		void Decrement() => Count--;
-
-		public event PropertyChangedEventHandler PropertyChanged;
-			// Let's pretend PropertyChanged.Fody is used to generate IL to raise direct and calculated property changes
-	}
-
 	public static class Factory
 	{
 		public static Label Label(string text = null) => new Label { Text = text };
