@@ -37,7 +37,7 @@ namespace PagesGallery.Markup
 		public static T Frame<T>(this T view, double height) where T : View { return view; }
 	}
 
-	public class VStack : StackLayout { public VStack() : { Orientation = StackOrientation.Vertical; } }
+	public class VStack : StackLayout { public VStack() { Orientation = StackOrientation.Vertical; } }
 
 	public class Spacer : ContentView { public Spacer() { WidthRequest = HeightRequest = 6; } }
 }
