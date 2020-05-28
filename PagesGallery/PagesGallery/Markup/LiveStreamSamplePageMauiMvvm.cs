@@ -16,9 +16,9 @@ namespace PagesGallery.Markup
 					 .Margin (left: 25, right: 25) .FillHorizontal () .TextLeft (),
 
 			Button ("Increment") .Bind (nameof(vm.IncrementCommand))
-					.Color (White) .Font (32)
-					.RoundedBorder (radius: 20, color: Transparent) .Shadow ()
-					.Margin (30) .FillHorizontal () .Frame (height: 76),
+				   .Color (White) .Font (32)
+				   .RoundedBorder (radius: 20, color: Transparent) .Shadow ()
+				   .Margin (30) .FillHorizontal () .Frame (height: 76),
 
 			Button ("Decrement") .Bind (nameof(vm.DecrementCommand)),
 
